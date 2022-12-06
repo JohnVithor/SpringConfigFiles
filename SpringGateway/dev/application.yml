@@ -4,11 +4,31 @@ spring:
       ribbon:
         enabled: false
     gateway:
-      discovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
-
+#      discovery:
+#        locator:
+#          enabled: true
+#          lower-case-service-id: true
+      routes:
+        - id: board-route
+          uri: lb://SPRINGBOARD/
+          predicates:
+            - Path=/board/**
+        - id: column-route
+          uri: lb://SPRINGCOLUMN/
+          predicates:
+            - Path=/column/**
+        - id: issue-route
+          uri: lb://SPRINGISSUE/
+          predicates:
+            - Path=/issues/**
+        - id: comment-route
+          uri: lb://SPRINGCOMMENT/
+          predicates:
+            - Path=/comments/**
+        - id: user-route
+          uri: lb://SPRINGUSER/
+          predicates:
+            - Path=/users/**
 server:
   port: 8000
 
