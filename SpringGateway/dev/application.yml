@@ -8,6 +8,17 @@ spring:
 #        locator:
 #          enabled: true
 #          lower-case-service-id: true
+      default-filters:
+        - name: Retry
+          args:
+            retries: 3
+            methods: GET
+            statuses: BAD_GATEWAY
+            backoff:
+              firstBackoff: 50ms
+              maxBackoff: 500ms
+              factor: 2
+              basedOnPreiousValue: false
       routes:
         - id: board-route
           uri: lb://SPRINGBOARD/
