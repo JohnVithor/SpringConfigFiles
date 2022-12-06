@@ -12,11 +12,11 @@ spring:
         - id: board-route
           uri: lb://SPRINGBOARD/
           predicates:
-            - Path=/board/**
+            - Path=/boards/**
         - id: column-route
           uri: lb://SPRINGCOLUMN/
           predicates:
-            - Path=/column/**
+            - Path=/columns/**
         - id: issue-route
           uri: lb://SPRINGISSUE/
           predicates:
