@@ -45,9 +45,9 @@ management:
     circuitbreakers:
       enabled: true
 
-resilience4j:
-  circuitbreaker:
-    instances:
+#resilience4j:
+#  circuitbreaker:
+#    instances:
 #      save_board_cb:
 #        registerHealthIndicator: true
 #        ringBufferSizeInClosedState: 5
