@@ -1,0 +1,55 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/columns
+    username: local
+    password: 123
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+  jmx:
+    enabled: false
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+  main:
+    lazy-initialization: true
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://localhost:9090/eureka/
+
+server:
+  port: 8082
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    circuitbreakers:
+      enabled: true
+    health:
+      show-details: ALWAYS
+  health:
+    circuitbreakers:
+      enabled: true
+
+resilience4j:
+  circuitbreaker:
+    instances:
+#      save_board_cb:
+#        registerHealthIndicator: true
+#        ringBufferSizeInClosedState: 5
+#        ringBufferSizeInHalfOpenState: 3
+#        waitDurationInOpenState: 10s
+#        failureRateThreshold: 50
+#        recordExceptions:
+#          - feign.FeignException
