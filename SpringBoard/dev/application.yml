@@ -52,6 +52,4 @@ resilience4j:
         waitDurationInOpenState: 10s
         failureRateThreshold: 50
         recordExceptions:
-          - java.lang.Throwable
-          - java.lang.Exception
           - feign.FeignException
