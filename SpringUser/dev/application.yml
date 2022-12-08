@@ -45,14 +45,24 @@ management:
     circuitbreakers:
       enabled: true
 
-#resilience4j:
-#  circuitbreaker:
-#    instances:
-#      save_board_cb:
-#        registerHealthIndicator: true
-#        ringBufferSizeInClosedState: 5
-#        ringBufferSizeInHalfOpenState: 3
-#        waitDurationInOpenState: 10s
-#        failureRateThreshold: 50
-#        recordExceptions:
-#          - feign.FeignException
+resilience4j:
+  circuitbreaker:
+    instances:
+      validatePassword_cb:
+        registerHealthIndicator: true
+        failureRateThreshold: 50
+        slidingWindowSize: 20
+        minimumNumberOfCalls: 20
+        waitDurationInOpenState: 10s
+        permmitedNumberOfCallsInHalfOpenState: 5
+  thread-pool-bulkhead:
+    instances:
+      validatePassword_bh:
+        maxThreadPoolSize: 2
+        coreThreadPoolSize: 2
+        queueCapacity: 20
+  retry:
+    instances:
+      validatePassword_rt:
+        maxRetryAttempts: 3
+        waitDuration: 500ms
