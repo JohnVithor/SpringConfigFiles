@@ -29,7 +29,7 @@ server:
   port: 8080
 
 security:
-  check-password-strength: false
+  check-password-strength: true
 
 management:
   endpoints:
@@ -55,12 +55,11 @@ resilience4j:
         minimumNumberOfCalls: 20
         waitDurationInOpenState: 10s
         permmitedNumberOfCallsInHalfOpenState: 5
-  thread-pool-bulkhead:
+  bulkhead:
     instances:
       validatePassword_bh:
-        maxThreadPoolSize: 2
-        coreThreadPoolSize: 2
-        queueCapacity: 20
+        maxConcurrentCalls: 20
+        maxWaitDuration: 1s
   retry:
     instances:
       validatePassword_rt:

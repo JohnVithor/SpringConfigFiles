@@ -59,13 +59,11 @@ resilience4j:
         minimumNumberOfCalls: 20
         waitDurationInOpenState: 10s
         permmitedNumberOfCallsInHalfOpenState: 5
-  thread-pool-bulkhead:
+  bulkhead:
     instances:
       isUserValid_bh:
-        maxThreadPoolSize: 2
-        coreThreadPoolSize: 2
-        queueCapacity: 20
+        maxConcurrentCalls: 20
+        maxWaitDuration: 1s
       isBoardValid_bh:
-        maxThreadPoolSize: 2
-        coreThreadPoolSize: 2
-        queueCapacity: 20
+        maxConcurrentCalls: 20
+        maxWaitDuration: 1s
