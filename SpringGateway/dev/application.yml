@@ -28,72 +28,72 @@ spring:
           uri: lb://SPRINGBOARD/
           predicates:
             - Path=/boards/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: boards_CB
-                registerHealthIndicator: true
-                failureRateThreshold: 50
-                slidingWindowSize: 20
-                minimumNumberOfCalls: 20
-                waitDurationInOpenState: 10s
-                permmitedNumberOfCallsInHalfOpenState: 5
+#          filters:
+#            - name: CircuitBreaker
+#              args:
+#                name: boards_CB
+#                registerHealthIndicator: true
+#                failureRateThreshold: 50
+#                slidingWindowSize: 20
+#                minimumNumberOfCalls: 20
+#                waitDurationInOpenState: 10s
+#                permmitedNumberOfCallsInHalfOpenState: 5
         - id: column-route
           uri: lb://SPRINGCOLUMN/
           predicates:
             - Path=/columns/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: columns_CB
-                registerHealthIndicator: true
-                failureRateThreshold: 50
-                slidingWindowSize: 20
-                minimumNumberOfCalls: 20
-                waitDurationInOpenState: 10s
-                permmitedNumberOfCallsInHalfOpenState: 5
+#          filters:
+#            - name: CircuitBreaker
+#              args:
+#                name: columns_CB
+#                registerHealthIndicator: true
+#                failureRateThreshold: 50
+#                slidingWindowSize: 20
+#                minimumNumberOfCalls: 20
+#                waitDurationInOpenState: 10s
+#                permmitedNumberOfCallsInHalfOpenState: 5
         - id: issue-route
           uri: lb://SPRINGISSUE/
           predicates:
             - Path=/issues/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: issues_CB
-                registerHealthIndicator: true
-                failureRateThreshold: 50
-                slidingWindowSize: 20
-                minimumNumberOfCalls: 20
-                waitDurationInOpenState: 10s
-                permmitedNumberOfCallsInHalfOpenState: 5
+#          filters:
+#            - name: CircuitBreaker
+#              args:
+#                name: issues_CB
+#                registerHealthIndicator: true
+#                failureRateThreshold: 50
+#                slidingWindowSize: 20
+#                minimumNumberOfCalls: 20
+#                waitDurationInOpenState: 10s
+#                permmitedNumberOfCallsInHalfOpenState: 5
         - id: comment-route
           uri: lb://SPRINGCOMMENT/
           predicates:
             - Path=/comments/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: comments_CB
-                registerHealthIndicator: true
-                failureRateThreshold: 50
-                slidingWindowSize: 20
-                minimumNumberOfCalls: 20
-                waitDurationInOpenState: 10s
-                permmitedNumberOfCallsInHalfOpenState: 5
+#          filters:
+#            - name: CircuitBreaker
+#              args:
+#                name: comments_CB
+#                registerHealthIndicator: true
+#                failureRateThreshold: 50
+#                slidingWindowSize: 20
+#                minimumNumberOfCalls: 20
+#                waitDurationInOpenState: 10s
+#                permmitedNumberOfCallsInHalfOpenState: 5
         - id: user-route
           uri: lb://SPRINGUSER/
           predicates:
             - Path=/users/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: users_CB
-                registerHealthIndicator: true
-                failureRateThreshold: 50
-                slidingWindowSize: 20
-                minimumNumberOfCalls: 20
-                waitDurationInOpenState: 10s
-                permmitedNumberOfCallsInHalfOpenState: 5
+#          filters:
+#            - name: CircuitBreaker
+#              args:
+#                name: users_CB
+#                registerHealthIndicator: true
+#                failureRateThreshold: 50
+#                slidingWindowSize: 20
+#                minimumNumberOfCalls: 20
+#                waitDurationInOpenState: 10s
+#                permmitedNumberOfCallsInHalfOpenState: 5
 server:
   port: 8000
 
