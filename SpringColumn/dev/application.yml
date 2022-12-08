@@ -42,14 +42,22 @@ management:
     circuitbreakers:
       enabled: true
 
-#resilience4j:
-#  circuitbreaker:
-#    instances:
-#      save_board_cb:
-#        registerHealthIndicator: true
-#        ringBufferSizeInClosedState: 5
-#        ringBufferSizeInHalfOpenState: 3
-#        waitDurationInOpenState: 10s
-#        failureRateThreshold: 50
-#        recordExceptions:
-#          - feign.FeignException
+resilience4j:
+  circuitbreaker:
+    instances:
+      isUserValid_cb:
+        registerHealthIndicator: true
+        ringBufferSizeInClosedState: 5
+        ringBufferSizeInHalfOpenState: 3
+        waitDurationInOpenState: 10s
+        failureRateThreshold: 50
+        recordExceptions:
+          - feign.FeignException
+      isBoardValid_cb:
+        registerHealthIndicator: true
+        ringBufferSizeInClosedState: 5
+        ringBufferSizeInHalfOpenState: 3
+        waitDurationInOpenState: 10s
+        failureRateThreshold: 50
+        recordExceptions:
+          - feign.FeignException

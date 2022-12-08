@@ -45,7 +45,7 @@ management:
 resilience4j:
   circuitbreaker:
     instances:
-      save_board_cb:
+      isUserValid_cb:
         registerHealthIndicator: true
         ringBufferSizeInClosedState: 5
         ringBufferSizeInHalfOpenState: 3
