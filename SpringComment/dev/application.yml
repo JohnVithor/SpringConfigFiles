@@ -47,17 +47,15 @@ resilience4j:
     instances:
       isUserValid_cb:
         registerHealthIndicator: true
-        ringBufferSizeInClosedState: 5
-        ringBufferSizeInHalfOpenState: 3
-        waitDurationInOpenState: 10s
         failureRateThreshold: 50
-        recordExceptions:
-          - feign.FeignException
+        slidingWindowSize: 20
+        minimumNumberOfCalls: 20
+        waitDurationInOpenState: 10s
+        permmitedNumberOfCallsInHalfOpenState: 5
       isIssueValid_cb:
         registerHealthIndicator: true
-        ringBufferSizeInClosedState: 5
-        ringBufferSizeInHalfOpenState: 3
-        waitDurationInOpenState: 10s
         failureRateThreshold: 50
-        recordExceptions:
-          - feign.FeignException
+        slidingWindowSize: 20
+        minimumNumberOfCalls: 20
+        waitDurationInOpenState: 10s
+        permmitedNumberOfCallsInHalfOpenState: 5
