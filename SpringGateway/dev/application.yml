@@ -24,8 +24,8 @@ spring:
       #          enabled: true
       #          lower-case-service-id: true
       httpclient:
-        connect-timeout: 1000
-        response-timeout: 5s
+        connect-timeout: 2000
+        response-timeout: 7s
       default-filters:
         - name: Retry
           args:
@@ -52,6 +52,7 @@ spring:
                 minimumNumberOfCalls: 20
                 waitDurationInOpenState: 10s
                 permmitedNumberOfCallsInHalfOpenState: 5
+
         - id: column-route
           uri: lb://SPRINGCOLUMN/
           predicates:
