@@ -30,11 +30,15 @@ spring:
 eureka:
   instance:
     preferIpAddress: true
+    lease-expiration-duration-in-seconds: 10
   client:
     register-with-eureka: true
     fetch-registry: true
     serviceUrl:
       defaultZone: http://localhost:9090/eureka/
+  server:
+    expected-client-renewal-interval-seconds: 5
+    eviction-interval-timer-in-ms: 10
 
 server:
   port: 8083
