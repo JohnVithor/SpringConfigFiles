@@ -30,7 +30,6 @@ eureka:
       defaultZone: http://localhost:9090/eureka/
   server:
     expected-client-renewal-interval-seconds: 5
-    eviction-interval-timer-in-ms: 10
 
 server:
   port: 8085
